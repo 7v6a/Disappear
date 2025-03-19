@@ -40,3 +40,6 @@ Once the dependencies are installed and the configuration is set, you can run th
 node iDel.mjs
 ```
 This will start the bot, and you will be able to interact with it through your terminal.
+
+![preview](https://github.com/user-attachments/assets/16588fe6-dcea-4335-88fb-35f4f9db8935)
+
