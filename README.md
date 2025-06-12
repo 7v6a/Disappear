@@ -1,45 +1,82 @@
-# iDel
-A Discord selfbot designed to delete messages from both DMs and servers, inspired by the Undiscord script.
+# Disappear - Discord Message Cleaner Selfbot
 
-### Requirements
+A selfbot utility to bulk delete your Discord messages across servers, DMs, and group chats with rate-limiting to avoid detection.
 
-- [Node.js](https://nodejs.org/en/) (Make sure you have the latest stable version)
-- A valid Discord user account token
 
-### Setup and Installation
 
-#### 1. Install Node.js
-If you haven’t already, download and install [Node.js](https://nodejs.org/en/)  (Ensure that you have the latest stable version installed.)
+## ⚠️ Important Notice
+- This is a **selfbot**, which violates Discord's Terms of Service
+- Use at your own risk - accounts using selfbots may be banned
+- Only use this with your own account/token
+- The bot includes rate-limiting to reduce detection risk
 
-#### 2. Download the Script
-Navigate to the directory where you want to store the script and download or clone the repository containing the script.
+## Features
+- Delete messages in batches with configurable delays
+- Support for:
+  - Direct Messages (DMs)
+  - Group DMs
+  - Specific channels
+  - Entire servers (all channels)
+- Colorful console output with gradients
+- Automatic retry mechanism for failed deletions
+- Interactive command interface
 
-#### 3. Install Dependencies
-Once you have the script, open a terminal in the project directory and run the following command to install the necessary dependencies:
+## Installation
+1. Clone the repository and navigate to the iDelete directory:
+   ```bash
+   git clone https://github.com/7v6a/Disappear.git
+   cd Disappear/iDelete
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Create a config.json file with your Discord token:
+   ```json
+   {
+   "token": "UserAccountToken"
+   }
+   ```
 
-```bash
-npm install discord.js-selfbot-v13 readline-sync gradient-string
-```
+## Usage
 
-### 4. Configure config.json
+1. Start the selfbot:
+    ```bash
+    node disappear.mjs
+    ```
+2. Follow interactive prompts;
+   ```text
+   Enter: dm | server <ID> | channel ID | exit
+    >
+   ```
 
-In the same directory as the script, create a config.json file and add your Discord user token:
+ ## Configuration
+ Edit these constants in disappear.mjs to adjust behavior:
+ 
+```javascript
+    const constants = {
+      DELETE_DELAY: 800,       // Delay between individual message deletions (ms)
+      BATCH_SIZE: 7,           // Number of messages before a longer pause
+      BATCH_PAUSE: 3000,       // Pause after each batch (ms)
+      MAX_RETRIES: 3           // Max retry attempts for failed operations
+        };
+ ```
 
-```json
-{
-    "token": "your-discord-user-token-here"
-}
-```
 
-Replace "your-discord-user-token-here" with your actual Discord account token.
+## FAQ
 
-### 5. Run the Script
+Q: How do I get channel/server IDs? <br>
+A: Enable Developer Mode in Discord settings, then right-click to copy IDs.
 
-Once the dependencies are installed and the configuration is set, you can run the script with the following command:
-```bash
-node iDel.mjs
-```
-This will start the bot, and you will be able to interact with it through your terminal.
+Q: Why does it pause between deletions? <br>
+A: To mimic human behavior and avoid rate limits or detection.
 
-![preview](https://github.com/user-attachments/assets/16588fe6-dcea-4335-88fb-35f4f9db8935)
+Q: Can I delete messages older than 14 days? <br>
+A: Yes, this selfbot can bypass the normal 14-day limitation.
 
+Q: Is there a way to preview before deleting? <br>
+A: Not currently - always back up important messages first.
+
+## Disclaimer
+
+This project is for educational purposes only. The developer is not responsible for any account suspensions or violations of Discord's Terms of Service that may result from using this software.
